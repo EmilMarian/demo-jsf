@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+
+<h:head>
+    <title>Employee page</title>
+</h:head>
+<f:metadata>
+    <f:event type="preRenderView" listener="#{employeeBean.getEmployeeList}" />
+</f:metadata>
+<h:body>
+    <p:panel>
+        <h:form>
+            <p:dataTable var="employee" value="#{employeeBean.allEmployees}">
+                <p:column headerText="Id" filterMatchMode="contains" filterBy="#{employee.id}">
+                    <h:outputText value="#{employee.id}"/>
+                </p:column>
+
+                <p:column headerText="First Name" filterMatchMode="contains" filterBy="#{employee.firstName}">
+                    <h:outputText value="#{employee.firstName}"/>
+                </p:column >
+
+                <p:column headerText="Last Name" filterMatchMode="contains" filterBy="#{employee.lastName}" >
+                    <h:outputText value="#{employee.lastName}" />
+                </p:column>
+
+                <!--<p:column headerText="Actions"  >-->
+                    <!--<f:facet name = "header">Edit</f:facet>-->
+                    <!--<h:commandButton value = "Edit"/>-->
+                <!--</p:column>-->
+            </p:dataTable>
+            <br/>
+        </h:form>
+    </p:panel>
+
+    <p:panel>
+        <div class="card">
+            <h:form>
+                <h:panelGrid columns="3" cellpadding="7">
+                    <p:outputLabel for="first-name" value="First Name"/>
+                    <p:inputText id="first-name" value="#{employeeBean.firstName}"/>
+                </h:panelGrid>
+                <h:panelGrid columns="3" cellpadding="7">
+                    <p:outputLabel for="last-name" value="Last Name"/>
+                    <p:inputText id="last-name" value="#{employeeBean.lastName}"/>
+                </h:panelGrid>
+
+                <h:commandButton action="#{employeeBean.add}" value="Add" styleClass="p-mt-3" resetValues="true"/>
+
+            </h:form>
+        </div>
+    </p:panel>
+</h:body>
+
+</html>
+
+
+

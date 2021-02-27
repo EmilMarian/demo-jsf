@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+</h:head>
+<h:body>
+    <p:panel>
+        <f:facet name="actions">
+            <h:commandLink styleClass="ui-panel-titlebar-icon ui-corner-all ui-state-default">
+                <h:outputText styleClass="ui-icon ui-icon-help" />
+            </h:commandLink>
+        </f:facet>
+        <h:outputText value="Number of employee is: ${employeeBean.numberEmployee}" />
+    </p:panel>
+</h:body>
+</html>
